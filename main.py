@@ -34,17 +34,31 @@ def get_random_list(range):
     return my_list
 
 
-my_list = get_random_list(int(input('Введите длину списка: ')))
-print(my_list)
+# my_list = get_random_list(int(input('Введите длину списка: ')))
+# print(my_list)
 def get_solv_idx(my_list):
     solv_list = []
-    if len(my_list)%2 == 0:
-        for i in range(len(my_list)//2):
-            solved = my_list[i] * my_list[-i-1]
+    if len(my_list) % 2 == 0:
+        for i in range(len(my_list) // 2):
+            solved = my_list[i] * my_list[-i - 1]
             solv_list.append(solved)
     else:
-        for i in range(len(my_list)//2+1):
-            solved = my_list[i] * my_list[-i-1]
+        for i in range(len(my_list) // 2 + 1):
+            solved = my_list[i] * my_list[-i - 1]
             solv_list.append(solved)
     return solv_list
-print(get_solv_idx(my_list))
+
+
+# print(get_solv_idx(my_list))
+# Задайте список из вещественных чисел. Напишите программу, которая найдёт разницу между максимальным и минимальным значением дробной части элементов. (подробности в конце записи семинара).
+# Пример: [1.1, 1.2, 3.1, 5, 10.01] => 0.19
+my_list = []
+i = 0
+while i < 10:
+    my_list.append(round(random.uniform(0, 10), 10))
+    i += 1
+print(my_list)
+for i in range(len(my_list)):
+    my_list[i] = my_list[i] - int(my_list[i])
+print(my_list)
+print(f'Разница максимальной дробной частью {max(my_list)} и минимальной {min(my_list)} равна: {max(my_list)-min(my_list)}')
